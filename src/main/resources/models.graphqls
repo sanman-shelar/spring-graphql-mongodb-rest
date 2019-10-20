@@ -1,5 +1,6 @@
 schema {
     query : PersonQuery
+    mutation : PersonMutation
 }
 
 type PersonQuery {
@@ -7,7 +8,16 @@ type PersonQuery {
     findPerson(name: String): Person 
 }
 
+type PersonMutation {    
+    addPerson(person: PersonInput!): Person! 
+}
+
 type Person {   
    name: String
    age: Int
+}
+
+input PersonInput {   
+   name: String!
+   age: Int!
 }
