@@ -1,23 +1,20 @@
 schema {
     query : PersonQuery
-    mutation : PersonMutation
 }
 
 type PersonQuery {
-    allPersons: [Person]
-    findPerson(name: String): Person 
+    findPerson(pid: Int): Person 
 }
 
-type PersonMutation {    
-    addPerson(person: PersonInput!): Person! 
-}
-
-type Person {   
-   name: String
-   age: Int
-}
-
-input PersonInput {   
+type Person {
+   pid: Int!
    name: String!
    age: Int!
+   address: Address
+}
+
+type Address {
+    pid: Int!
+    city: String!
+    state: String!
 }
